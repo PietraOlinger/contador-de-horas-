@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contador de Horas</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app">
-    <header>
-      <h1>Contador de Horas</h1>
-      <p class="subtitle">Some ou subtraia horas, veja o calendário mensal e faça anotações.</p>
+    <header class="app-header">
+      <div>
+        <h1>Contador de Horas</h1>
+        <p class="subtitle"></p>
+      </div>
     </header>
 
     <main class="layout">
@@ -18,21 +20,21 @@
         <div class="card counter-card">
           <h2>Total de Horas</h2>
           <div class="hours-display">
-            <button id="decrease" title="Diminuir">−</button>
-            <div id="totalHours">0.00</div>
-            <button id="increase" title="Aumentar">+</button>
+            <button id="decrease" class="big-btn" title="Diminuir 0.25h">−</button>
+            <div id="totalHours" class="total">0.00</div>
+            <button id="increase" class="big-btn" title="Aumentar 0.25h">+</button>
           </div>
 
           <div class="quick-actions">
-            <input id="customHours" type="number" step="0.25" min="0" placeholder="Ex: 1.5">
+            <input id="customHours" type="number" step="0.25" min="0" placeholder="Ex: 1.5" />
             <div class="actions">
               <button id="addCustom">Adicionar</button>
               <button id="subCustom">Subtrair</button>
-              <button id="resetHours" class="ghost">Resetar</button>
+              <button id="resetHours" class="ghost">Resetar Tudo</button>
             </div>
           </div>
 
-          <p class="hint">Clique em um dia no calendário para adicionar horas específicas naquela data.</p>
+          <p class="hint">Clique em um dia do calendário para atribuir horas a ele. O total é a soma dos dias.</p>
         </div>
 
         <div class="card notes-card">
@@ -62,17 +64,17 @@
       </section>
     </main>
 
-    <footer>
-      <small>Design neutro e simples — salvo localmente no seu navegador (localStorage).</small>
+    <footer class="app-footer">
+      <small></small>
     </footer>
   </div>
 
   <!-- Modal simples -->
-  <div id="dayModal" class="modal hidden">
+  <div id="dayModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalDate">
     <div class="modal-content">
       <h3 id="modalDate">Data</h3>
-      <label>Horas neste dia</label>
-      <input id="modalHours" type="number" step="0.25" min="0" placeholder="0.00">
+      <label for="modalHours">Horas neste dia</label>
+      <input id="modalHours" type="number" step="0.25" min="0" placeholder="0.00" />
       <div class="modal-actions">
         <button id="saveDayHours">Salvar</button>
         <button id="clearDayHours" class="ghost">Limpar</button>
@@ -81,6 +83,6 @@
     </div>
   </div>
 
-  <script src="../js/script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
